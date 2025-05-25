@@ -82,17 +82,17 @@ public class ArticleService {
 		// );
 	}
 
-	// public ArticlePageResponse readAll(Long boardId, Long page, Long pageSize) {
-	// 	return ArticlePageResponse.of(
-	// 		articleRepository.findAll(boardId, (page - 1) * pageSize, pageSize).stream()
-	// 			.map(ArticleResponse::from)
-	// 			.toList(),
-	// 		articleRepository.count(
-	// 			boardId,
-	// 			PageLimitCalculator.calculatePageLimit(page, pageSize, 10L)
-	// 		)
-	// 	);
-	// }
+	public ArticlePageResponse readAll(Long boardId, Long page, Long pageSize) {
+		return ArticlePageResponse.of(
+			articleRepository.findAll(boardId, (page - 1) * pageSize, pageSize).stream()
+				.map(ArticleResponse::from)
+				.toList(),
+			articleRepository.count(
+				boardId,
+				PageLimitCalculator.calculatePageLimit(page, pageSize, 10L)
+			)
+		);
+	}
 
 	// public List<ArticleResponse> readAllInfiniteScroll(Long boardId, Long pageSize, Long lastArticleId) {
 	// 	List<Article> articles = lastArticleId == null ?
@@ -106,4 +106,6 @@ public class ArticleService {
 			.map(BoardArticleCount::getArticleCount)
 			.orElse(0L);
 	}
+
+
 }
