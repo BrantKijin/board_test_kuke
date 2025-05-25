@@ -1,4 +1,6 @@
-package data;
+package kuke.board.comment.data;
+
+
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.PersistenceContext;
 import kuke.board.comment.entity.Comment;
